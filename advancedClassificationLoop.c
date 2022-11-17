@@ -1,4 +1,4 @@
-int pow(int base, int power);
+int myPow(int base, int power);
 
 int numLength(int);
 
@@ -10,7 +10,7 @@ int isArmstrong(int num)
     while (ch_num!=0)
     {
         int mod = ch_num%10;
-        sum+= pow(mod, power);
+        sum+= myPow(mod, power);
         ch_num/=10;
     }
     if (sum == num)
@@ -39,7 +39,7 @@ int isPalindrome(int num)
 }
 
 
-int pow(int base, int power)
+int myPow(int base, int power)
 {
     int num=1;
     while (power>0)

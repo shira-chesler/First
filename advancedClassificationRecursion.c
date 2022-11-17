@@ -1,4 +1,4 @@
-int pow(int, int );
+int myPow(int, int );
 
 int numLength(int);
 
@@ -26,16 +26,16 @@ int isPalindrome(int num)
     return 0;
 }
 
-int isArmstrongRec(original, sum, length)
+int isArmstrongRec(int original, int sum, int length)
 {
     if (original == 0)
     {
         return sum;
     }
-    return(isArmstrongRec(original/10, sum+pow(original%10, length), length));
+    return(isArmstrongRec(original/10, sum+myPow(original%10, length), length));
 }
 
-int isPalindromeRec(original, reverse)
+int isPalindromeRec(int original, int reverse)
 {
     if (original==0)
     {
@@ -44,7 +44,7 @@ int isPalindromeRec(original, reverse)
     return(isPalindromeRec(original/10, (reverse*10)+original%10));
 }
 
-int pow(int base, int power)
+int myPow(int base, int power)
 {
     int num=1;
     while (power>0)
