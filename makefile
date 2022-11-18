@@ -30,11 +30,11 @@ libclassloops.so : basicClassification.c advancedClassificationLoop.c
 mains : main.o libclassrec.a
 	$(CC) $(CFLAGS) main.o -lclassrec -L. -o mains
 
-maindloop : main.c libclassloops.so
-	$(CC) $(CFLAGS) -c main.c -L. -lclassloops -o maindloop
+maindloop : main.o libclassloops.so
+	$(CC) $(CFLAGS) main.o -L. -lclassloops -o maindloop
 
-maindrec: main.c libclassrec.so
-	$(CC) $(CFLAGS) -c main.c -L. -lclassrec -o maindrec
+maindrec: main.o libclassrec.so
+	$(CC) $(CFLAGS) main.o -L. -lclassrec -o maindrec
 
 clean:
 	rm mains maindrec maindloop *.so *.o *.a
