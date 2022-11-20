@@ -36,5 +36,7 @@ maindloop : main.o libclassloops.so
 maindrec: main.o libclassrec.so
 	$(CC) $(CFLAGS) main.o -L. ./libclassrec.so -o maindrec
 
+.PHONY: all recursived loopd loops recursives clean
+
 clean:
 	rm mains maindrec maindloop *.so *.o *.a
