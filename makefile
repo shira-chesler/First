@@ -2,7 +2,6 @@ CC = gcc
 CFLAGS = -g -Wall
 
 all : recursived loopd loops recursives mains maindloop maindrec 
-	export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH
 
 loops : libclassloops.a
 
