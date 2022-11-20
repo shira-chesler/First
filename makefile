@@ -1,7 +1,8 @@
 CC = gcc
 CFLAGS = -g -Wall
 
-all : recursived loopd loops recursives mains maindloop maindrec
+all : recursived loopd loops recursives mains maindloop maindrec 
+	export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH
 
 loops : libclassloops.a
 
@@ -28,13 +29,13 @@ libclassloops.so : basicClassification.c advancedClassificationLoop.c
 	export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH
 
 mains : main.o libclassrec.a
-	$(CC) $(CFLAGS) main.o -lclassrec -L. -o mains
+	$(CC) $(CFLAGS) main.o ./libclassrec.a -L. -o mains
 
 maindloop : main.o libclassloops.so
-	$(CC) $(CFLAGS) main.o -L. -lclassloops -o maindloop
+	$(CC) $(CFLAGS) main.o -L. ./libclassloops.so -o maindloop
 
 maindrec: main.o libclassrec.so
-	$(CC) $(CFLAGS) main.o -L. -lclassrec -o maindrec
+	$(CC) $(CFLAGS) main.o -L. ./libclassrec.so -o maindrec
 
 clean:
 	rm mains maindrec maindloop *.so *.o *.a
