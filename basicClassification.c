@@ -1,5 +1,7 @@
 int factorial(int);
 
+int aboutSqrt(int); //function that returns the int part of sqrt of a number
+
 int isPrime(int num)
 {
     if (num<1)
@@ -16,7 +18,7 @@ int isPrime(int num)
         return 1;
     }
     
-    for (int i = 2; i <= (num/2)+1; i++)
+    for (int i = 2; i <= aboutSqrt(num)+1; i++)
     {
         if (num%i==0)
         {
@@ -51,4 +53,28 @@ int factorial(int num)
         mul_num*=i;
     }
     return mul_num;
+}
+
+int aboutSqrt(int num)
+{
+    int beggin=0, end=num, aboutroot=0;
+    while (beggin<=end)
+    {
+        int mid = beggin+end/2;
+        if (mid * mid == num)
+        {
+            return mid;
+        }
+        else if (mid * mid > num)
+        {
+            end--;
+        }
+        else
+        {
+            aboutroot = mid;
+            beggin= mid + 1;
+        }
+    }
+    return aboutroot;
+    
 }
